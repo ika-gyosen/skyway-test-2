@@ -1,0 +1,26 @@
+.inputWrapper {
+  align-items: center;
+  display: flex;
+  padding: 4px;
+}
+
+.settingCardWrapper {
+  align-items: center;
+  background: #fff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  width: 100%;
+}
+
+.icon {
+  font-size: 30px;
+  padding: 4px;
+}
+
+.inputStyle {
+  border-bottom: 1px #000 solid;
+  margin: 4px 16px;
+  padding: 4px;
+}
