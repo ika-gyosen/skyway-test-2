@@ -6,5 +6,9 @@
     "stylelint-config-prettier"
   ],
   "plugins": ["stylelint-order", "stylelint-scss"],
-  "rules": { "order/properties-alphabetical-order": true }
+  "rules": {
+    "order/properties-alphabetical-order": true,
+    "selector-type-case": "lower",
+    "selector-class-pattern": null
+  }
 }

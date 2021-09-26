@@ -1,0 +1,44 @@
+.wrapper {
+  align-items: center;
+  display: grid;
+  grid-template: 1fr 1fr 1fr / auto;
+  justify-content: center;
+}
+
+.title {
+  grid-row: 1/2;
+  padding: 16px 0;
+  width: 100%;
+}
+
+.joinButton {
+  background: rgb(97, 199, 123);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 4px 10px;
+
+  &:visited {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.joinButtonIcon {
+  font-size: 20px;
+  margin: 4px;
+}
+
+.link {
+  color: #000;
+  text-decoration: none;
+}
+
+.buttonWrapper {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 16px;
+}

@@ -1,11 +1,14 @@
-import Top from "Container/Pages/Top";
+import Container from "Container";
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import "ress";
 import "./styles/index.scss";
 ReactDOM.render(
   <React.StrictMode>
-    <Top />
+    <Router>
+      <Container />
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );
