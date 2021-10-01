@@ -1,4 +1,4 @@
-import { Chat } from "../../Container/Pages/ChatRoom";
+import { Chat } from "../../container/Pages/chatroom";
 import { nanoid } from "nanoid";
 import styles from "./style.module.scss";
 

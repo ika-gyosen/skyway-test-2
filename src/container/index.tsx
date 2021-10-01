@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Switch, Route } from "react-router-dom";
 import NotFound from "./Pages/404";
-import ChatRoom from "./Pages/ChatRoom";
-import Top from "./Pages/Top";
+import ChatRoom from "./Pages/chatroom";
+import Top from "./Pages/top";
 
 const Container: FC = () => (
   <Switch>

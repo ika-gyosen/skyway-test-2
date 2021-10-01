@@ -1,5 +1,5 @@
-import ChatInput from "Components/ChatInput";
-import ChatMessages from "Components/ChatMessages";
+import ChatInput from "components/ChatInput";
+import ChatMessages from "components/ChatMessages";
 import { useEffect, useRef, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import Peer, { RoomData } from "skyway-js";

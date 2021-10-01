@@ -1,6 +1,6 @@
 import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import JoinCard from "Components/JoinCard";
+import JoinCard from "components/JoinCard";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./style.module.scss";
