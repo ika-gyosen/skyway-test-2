@@ -1,19 +1,9 @@
 import ChatInput from "components/ChatInput";
-import ChatMessages from "components/ChatMessages";
+import ChatMessages, { ChatMessage } from "components/ChatMessages";
 import { useEffect, useRef, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import Peer, { RoomData } from "skyway-js";
 import styles from "./style.module.scss";
-
-export type Chat = {
-  text: string;
-  user: string;
-  meta: { type: "sys" | "message" | "receiveMessage" | "sendMessage" };
-};
-
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
 
 function ChatRoom(): JSX.Element {
   const usePeer = () => {
@@ -26,15 +16,26 @@ function ChatRoom(): JSX.Element {
   const room = useRef<any>();
 
   const history = useHistory();
+  const location =
+    useLocation<{
+      userName: string | undefined;
+      roomName: string | undefined;
+    }>();
 
   const [isLoad, setIsLoad] = useState(false);
   const [sendMessage, setSendMessage] = useState<string>("");
-  const [chat, setChat] = useState<Chat[]>([]);
+  const [chat, setChat] = useState<ChatMessage[]>([]);
 
-  const query = useQuery();
-  const userName = query.get("user");
-  const roomName = query.get("room");
-
+  if (
+    !location ||
+    !location.state ||
+    !location.state.userName ||
+    !location.state.roomName
+  ) {
+    history.push("/");
+  }
+  const userName = location ? location.state.userName : "";
+  const roomName = location ? location.state.roomName : "";
   if (!roomName || !userName) {
     history.push("/");
   }

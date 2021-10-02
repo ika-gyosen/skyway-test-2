@@ -1,17 +1,21 @@
-import { faUserAlt, faComments } from "@fortawesome/free-solid-svg-icons";
+import {
+  faUserAlt,
+  faComments,
+  faUserSecret,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./style.module.scss";
 
 export type JoinCardProps = {
-  children: JSX.Element;
   userNameOnChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   roomNameOnChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onJoinClick: () => void;
 };
 
 function JoinCard({
-  children,
   userNameOnChange,
   roomNameOnChange,
+  onJoinClick,
 }: JoinCardProps) {
   return (
     <div className={styles.settingCardWrapper}>
@@ -38,7 +42,15 @@ function JoinCard({
           onChange={(e) => roomNameOnChange(e)}
         />
       </div>
-      {children}
+      <div className={styles.buttonWrapper}>
+        <FontAwesomeIcon
+          className={styles.joinButtonIcon}
+          icon={faUserSecret}
+        />
+        <div className={styles.joinButton}>
+          <button onClick={onJoinClick}>JOIN!</button>
+        </div>
+      </div>
     </div>
   );
 }

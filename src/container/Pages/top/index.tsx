@@ -1,14 +1,12 @@
-import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import JoinCard from "components/JoinCard";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import styles from "./style.module.scss";
+import { useHistory } from "react-router";
 
 function Top(): JSX.Element {
   const [roomName, setRoomName] = useState("");
   const [userName, setUserName] = useState("");
-
+  const history = useHistory();
   const handleUserName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserName(event.target.value);
   };
@@ -17,28 +15,22 @@ function Top(): JSX.Element {
     setRoomName(event.target.value);
   };
 
+  const onJoinClick = () => {
+    if (userName === "" || roomName === "") return;
+    history.push({
+      pathname: "/chatroom",
+      state: { userName: userName, roomName: roomName },
+    });
+  };
+
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>💬Simple React Chat Room</h1>
       <JoinCard
         userNameOnChange={handleUserName}
         roomNameOnChange={handleRoomName}
-      >
-        <Link
-          to={`/chatroom?user=${userName}&room=${roomName}`}
-          className={styles.link}
-        >
-          <div className={styles.buttonWrapper}>
-            <FontAwesomeIcon
-              className={styles.joinButtonIcon}
-              icon={faUserSecret}
-            />
-            <div className={styles.joinButton}>
-              <p>JOIN!</p>
-            </div>
-          </div>
-        </Link>
-      </JoinCard>
+        onJoinClick={onJoinClick}
+      />
     </div>
   );
 }

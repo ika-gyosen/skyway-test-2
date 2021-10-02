@@ -1,9 +1,14 @@
-import { Chat } from "../../container/Pages/chatroom";
 import { nanoid } from "nanoid";
 import styles from "./style.module.scss";
 
+export type ChatMessage = {
+  text: string;
+  user: string;
+  meta: { type: "sys" | "message" | "receiveMessage" | "sendMessage" };
+};
+
 export type ChatMessagesProps = {
-  messages: Chat[];
+  messages: ChatMessage[];
 };
 
 function ChatMessages({ messages }: ChatMessagesProps): JSX.Element {
